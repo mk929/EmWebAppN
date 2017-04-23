@@ -1,0 +1,200 @@
+﻿@model EmWebApp.Models.ConsularApptVM
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ConsularApptVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QueueNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QueueNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportIssuedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportIssuedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsulateLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConsulateLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StayPermitNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StayPermitNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NRIC_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NRIC_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactAddr1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactAddr1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactAddr2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactAddr2)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeAddr1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeAddr1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeAddr2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeAddr2)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivationCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivationCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

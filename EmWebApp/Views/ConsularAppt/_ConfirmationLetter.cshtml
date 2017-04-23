@@ -1,0 +1,342 @@
+﻿
+@model EmWebApp.Models.ConsularApptVM
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Myanmar Embassy Email</title>
+
+    <style type="text/css" media="screen">
+        /* Force Hotmail to display emails at full width */
+        .ExternalClass {
+            display: block !important;
+            width: 100%;
+        }
+
+            /* Force Hotmail to display normal line spacing */
+            .ExternalClass,
+            .ExternalClass p,
+            .ExternalClass span,
+            .ExternalClass font,
+            .ExternalClass td,
+            .ExternalClass div {
+                line-height: 100%;
+            }
+
+        body,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        p,
+        td {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.5em;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            line-height: 24px;
+        }
+
+        body,
+        p {
+            margin-bottom: 0;
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+        }
+
+        img {
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a img {
+            border: none;
+        }
+
+        .background {
+            background-color: white;
+        }
+
+        table.background {
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+        }
+
+        .block-img {
+            display: block;
+            line-height: 0;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+            a,
+            a:link {
+                color: #2A5DB0;
+                text-decoration: underline;
+            }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+        td {
+            vertical-align: top;
+            text-align: left;
+            padding: 2px;
+        }
+
+        .wrap {
+            width: 600px;
+        }
+
+        .wrap-cell {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .header-cell,
+        .body-cell,
+        .footer-cell {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .header-cell {
+            background-color: #eeeeee;
+            text-align: center;
+            font-size: 18px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            color: #808080;
+        }
+
+        .body-cell {
+            background-color: #ffffff;
+            padding-top: 30px;
+            padding-bottom: 34px;
+        }
+
+        .footer-cell {
+            background-color: #eeeeee;
+            text-align: center;
+            font-size: 13px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .card {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .data-heading {
+            text-align: right;
+            padding: 10px;
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        .data-value {
+            text-align: left;
+            padding: 10px;
+            background-color: #ffffff;
+        }
+
+        .force-full-width {
+            width: 100% !important;
+        }
+    </style>
+    <style type="text/css" media="only screen and (max-width: 1024px)">
+        @@media only screen and (max-width: 1024px) {
+            body[class*="background"],
+            table[class*="background"],
+            td[class*="background"] {
+                background: #fdfdfd !important;
+            }
+
+            table[class="card"] {
+                width: auto !important;
+            }
+
+            td[class="data-heading"],
+            td[class="data-value"] {
+                display: block !important;
+            }
+
+            td[class="data-heading"] {
+                text-align: left !important;
+                padding: 10px 10px 0;
+            }
+
+            table[class="wrap"] {
+                width: 100% !important;
+            }
+
+            td[class="wrap-cell"] {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+        }
+    </style>
+
+    <style>
+        .parent {
+            margin-bottom: 15px;
+            padding: 10px;
+            /* color: #0A416B; */
+            clear: both;
+        }
+
+        .left, .center, .right {
+            float: left;
+            width: 32%;
+            border: 0px solid #CEDCEA;
+            padding: 5px;
+        }
+    </style>
+
+
+</head>
+
+<body leftmargin="20" rightmargin="20" marginwidth="10" topmargin="0" marginheight="0" offset="0" bgcolor="" class="background">
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="60" valign="top" class="header-cell">
+                <div>
+                    @ViewBag.Logo
+                </div>
+                <div>
+                    <strong>Embassy of the Republic of the Union of Myanmar</strong>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="body-cell">
+                <table border="0" cellspacing="0" bgcolor="#ffffff">
+                    <tr>
+                        <td>
+                            <br /><br /><br />
+                            <center><h2>Consular Appointment Letter</h2></center>
+                            <br /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" style="padding-left:30px; padding-right:30px; background-color:#ffffff;">
+                            <br />
+                            This appointment letter is issued for  <b>@Model.Name</b>, holder of Passport No. <b>@Model.PassportNumber</b>.
+                            <br /><br />
+                            Please print this letter and present at the Embassy counter on the appointment date. 
+                            Date of appointment and queue number are mentioned as below.
+                            <br /><br /><br /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:50px;">
+                            <center>
+                                <table frame="box" cellspacing="2" cellpadding="5" bgcolor="#ffffff">
+                                    <tr>
+                                        <td><div>Appointment Date: </div></td>
+                                        <td><div><b>@(Model.AppointmentDate?.ToString("MMMM d, yyyy  [dddd]"))</b></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div>Queue Number: </div></td>
+                                        <td><div><b>@Model.QueueNumber</b></div></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><div>Service Type: </div></td>
+                                        <td><div><b>@ViewBag.AppointmentType</b></div></td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br /><br />
+                            <div class="parent">
+                                <div class="left">
+                                </div>
+                                <div class="center">
+                                    <table cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+                                        <tr>
+                                            <td style="background:#;"><div>Name: </div></td>
+                                            <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.Name</b></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background:#;"><div>Passport Number: </div></td>
+                                            <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.PassportNumber</b></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background:#;"><div>Nationality: </div></td>
+                                            <td style="background:#ffffff;"><div style="padding-left:15px"><b>Myanmar</b></div></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="right" style="text-align:left">
+                                    <center>@ViewBag.QR</center>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <br /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:30px; padding-top:20px;background-color:#ffffff;">
+                            <br />
+                            Application form, instruction and the list of required document are also sent to your email address:
+                            <b>@Model.ContactEmail</b>. 
+                            <br />Please fill up the required form(s) and prepare the document(s) according to the instruction.
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+
+                <br /><br />
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="footer-cell">
+                <div class="parent" style="padding:20px">
+                    <div class="left"  style="text-align:left">
+                        <br /><b>Address of Myanmar Embassy</b>
+                        <br />No. 15, St. Martin's Drive, Singapore 257996
+                        <br />Tel: (65) 6735 5263, 6735 6576
+                        <br />Fax: (65) 6735 6236
+                        <br />Consular Section: (65) 6735 2035
+                        <br />Email: webmaster@myanmarembassy.sg
+                    </div>
+                    <div class="center">
+                    </div>
+                    <div class="right" style="text-align:left">
+                        <br /><b>Consular Office Hours:</b>
+                        <br />Application Time (08:00 AM - 12:00 PM)
+                        <br />Collection Time  (03:00 AM - 04:00 PM)
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

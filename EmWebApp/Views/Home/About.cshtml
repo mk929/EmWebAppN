@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<!-- <h2>ViewBag.Title.</h2> -->
+
+<center><h3>The available Consular Services and their required document lists.</h3></center>
+<div class="container" style="padding:30px; padding-left: 50px; border:0px solid #666;
+             background: #fbfbfb;
+             box-shadow: 0px 0px 2px rgba(0,0,0,0.3)">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Service Types</h4>
+            <table border="0" cellspacing="3" cellpadding="5" style="background-color:#f3f3f3">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div align="center">1</div>
+                        </td>
+                        <td><a href="#case1">Renewal of Passport</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">2</div>
+                        </td>
+                        <td><a href="#case2">Loss/Damage of Passport</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">3</div>
+                        </td>
+                        <td><a href="#case3">New Born Baby Passport</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">4</div>
+                        </td>
+                        <td><a href="#case4">From Seaman Passport to Shorejob Passport</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">5</div>
+                        </td>
+                        <td><a href="#case5">Income Tax</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">6</div>
+                        </td>
+                        <td><a href="#case6">Recommendation Letter for being Student</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">7</div>
+                        </td>
+                        <td><a href="#case7"> Recommendation Letter for being Dependent</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">8</div>
+                        </td>
+                        <td><a href="#case8">Recommendation Letter for Unemployed</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">9</div>
+                        </td>
+                        <td><a href="#case9">Air Ticket Fee Deposit</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">10</div>
+                        </td>
+                        <td><a href="#case10">Invitation to Monks</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">11</div>
+                        </td>
+                        <td><a href="#case12">Inland Revenue Authority of Singapore – IRAS</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="center">12</div>
+                        </td>
+                        <td><a href="#case13">General / Special Power </a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <h4>Available Documents for Download</h4>
+                        <div class="">
+                            <ul>
+                                <li style="padding-bottom:8px;"><a href="http://myanmarembassy.sg/downloads/consular/recommendation_letter_handbook.pdf" target="_blank">Handbook for Recommendation Letter Applications(Myanmar)</a></li>
+                                <li style="padding-bottom:8px;"><a href="http://myanmarembassy.sg/downloads/consular/recommendation_letter_handbook_eng.pdf" target="_blank">Handbook for Recommendation Letter Applications(English)</a></li>
+                                <li style="padding-bottom:8px;"><a href="http://myanmarembassy.sg/downloads/consular/mrp_passport_application_handbook.pdf" target="_blank">Handbook for MRP Passport Applications(Myanmar)</a></li>
+                                <li><a href="http://myanmarembassy.sg/downloads/consular/mrp_passport_application_handbook_eng.pdf" target="_blank">Handbook for MRP Passport Applications(English)</a></li>
+                            </ul>
+                        </div>
+        </div>
+    </div>
+    <br /><hr />
+    <div class="row">
+        <div class="col-lg-offset-0 col-md-11">
+            @Html.Partial("_ReqDocList")
+        </div>
+    </div>
+</div>

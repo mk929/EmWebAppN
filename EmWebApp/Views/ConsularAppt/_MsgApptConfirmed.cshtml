@@ -1,0 +1,44 @@
+﻿@model EmWebApp.Models.ConsularApptVM
+<br />
+<div style="background:#fafafa; border:solid 0px; padding: 20px; margin-bottom: 230px;">
+    <p>
+        <h4><strong>The consular appointment is confirmed.</strong></h4><br />
+        <center>
+            <table border=0 frame="box" cellspacing="2" cellpadding="5" bgcolor="#ffffff">
+                <tr>
+                    <td style="background:#eeeeee;"><div>Name: </div></td>
+                    <td style="background:#ffffff;"><div>@Model.Name</div></td>
+                </tr>
+                <tr>
+                    <td style="background:#eeeeee;"><div>Passport Number: </div></td>
+                    <td style="background:#ffffff;"><div>@Model.PassportNumber</div></td>
+                </tr>
+                <tr>
+                    <td style="background:#eeeeee;"><div>Service Type: </div></td>
+                    <td style="background:#ffffff;"><div>@ViewBag.AppointmentType</div></td>
+                </tr>
+                <tr>
+                    <td style="background:#eeeeee;"><div>Appointment Date: </div></td>
+                    <td style="background:#ffffff;"><div><b>@(Model.AppointmentDate?.ToString("MMMM d, yyyy  [dddd]"))</b></div></td>
+                </tr>
+                <tr>
+                    <td style="background:#eeeeee;"><div>Queue Number: </div></td>
+                    <td style="background:#ffffff;"><div>@Model.QueueNumber</div></td>
+                </tr>
+                <tr>
+                    <td style="background:#eeeeee;"><div>Appointment Status: </div></td>
+                    <td style="background:#ffffff;"><span style="background:#b6ff00; padding:5px;"><b>&nbsp;Confirmed&nbsp;</b></span></td>
+                </tr>
+            </table>
+        </center>
+        <br /><br />
+        We have sent an email with comfirmation letter and the required documents attached to your email: <strong>@Model.ContactEmail</strong>.
+        <br /><br />
+        Please review the required document list, print out the confirmation letter and bring it along with all other required documents with you on the appointment date.
+
+    </p>
+</div>
+<br /><br /><br />
+<br /><br /><br />
+
+

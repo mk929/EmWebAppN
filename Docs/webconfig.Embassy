@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+	<configSections>
+  <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+   <section name="DiamondCard.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+  </sectionGroup>
+ </configSections>
+ <!--<location allowOverride="true">
+		<system.web>
+			<securityPolicy>
+				<trustLevel name="Full" policyFile="internal"/>
+				<trustLevel name="High" policyFile="web_hightrust.config"/>
+				<trustLevel name="Medium" policyFile="web_mediumtrust.config"/>
+				<trustLevel name="Low" policyFile="web_lowtrust.config"/>
+				<trustLevel name="Minimal" policyFile="web_minimaltrust.config"/>
+			</securityPolicy>
+			<trust level="Full" originUrl=""/>
+			<fullTrustAssemblies>
+				<add assemblyName="Microsoft.VisualStudio.Enterprise.AspNetHelper" version="10.0.0.0" publicKey="002400000480000094000000060200000024000052534131000400000100010007D1FA57C4AED9F0A32E84AA0FAEFD0DE9E8FD6AEC8F87FB03766C834C99921EB23BE79AD9D5DCC1DD9AD236132102900B723CF980957FC4E177108FC607774F29E8320E92EA05ECE4E821C0A5EFE8F1645C4C0C93C1AB99285D622CAA652C1DFAD63D745D6F2DE5F17E5EAF0FC4963D261C8A12436518206DC093344D5AD293"/>
+				<add assemblyName="Microsoft.VisualStudio.Web" version="10.0.0.0" publicKey="002400000480000094000000060200000024000052534131000400000100010007D1FA57C4AED9F0A32E84AA0FAEFD0DE9E8FD6AEC8F87FB03766C834C99921EB23BE79AD9D5DCC1DD9AD236132102900B723CF980957FC4E177108FC607774F29E8320E92EA05ECE4E821C0A5EFE8F1645C4C0C93C1AB99285D622CAA652C1DFAD63D745D6F2DE5F17E5EAF0FC4963D261C8A12436518206DC093344D5AD293"/>
+				<add assemblyName="Microsoft.Web.Infrastructure" version="1.0.0.0" publicKey="0024000004800000940000000602000000240000525341310004000001000100B5FC90E7027F67871E773A8FDE8938C81DD402BA65B9201D60593E96C492651E889CC13F1415EBB53FAC1131AE0BD333C5EE6021672D9718EA31A8AEBD0DA0072F25D87DBA6FC90FFD598ED4DA35E44C398C454307E8E33B8426143DAEC9F596836F97C8F74750E5975C64E2189F45DEF46B2A2B1247ADC3652BF5C308055DA9"/>
+				<add assemblyName="System.Data.SqlServerCe" version="4.0.0.0" publicKey="0024000004800000940000000602000000240000525341310004000001000100272736ad6e5f9586bac2d531eabc3acc666c2f8ec879fa94f8f7b0327d2ff2ed523448f83c3d5c5dd2dfc7bc99c5286b2c125117bf5cbe242b9d41750732b2bdffe649c6efb8e5526d526fdd130095ecdb7bf210809c6cdad8824faa9ac0310ac3cba2aa0523567b2dfa7fe250b30facbd62d4ec99b94ac47c7d3b28f1f6e4c8"/>
+			</fullTrustAssemblies>
+			<partialTrustVisibleAssemblies/>
+		</system.web> 
+	</location>-->
+	<connectionStrings>
+  <!--<add name="DP_MFA_DBConnectionString" connectionString="Data Source=mmofadb.db.8771633.hostedresource.com; Initial Catalog=mmofadb; User ID=mmofadb;Password='d@taBa5e';Connect Timeout=2000; pooling='true'; Max Pool Size=200" providerName="System.Data.SqlClient"/>-->
+	<add name="DP_MFA_DBConnectionString" connectionString="Data Source=MESGCONSRV01\SQLEXPRESS; Initial Catalog=mmofadb; User ID=sa;Password='asd123!@#';Connect Timeout=2000; pooling='true'; Max Pool Size=200" providerName="System.Data.SqlClient"/>
+
+ </connectionStrings>
+	<system.web>
+		<httpHandlers>
+			<add path="Reserved.ReportViewerWebControl.axd" verb="*" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+		</httpHandlers>
+		<authorization>
+			<deny users="?"/>
+		</authorization>
+		<compilation debug="true" targetFramework="4.0">
+			<assemblies>
+				<add assembly="System.Web.Extensions.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
+				<add assembly="System.Design, Version=4.0.0.0, Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A"/>
+				<add assembly="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+				<!--<add assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304"/>
+				<add assembly="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304"/>-->
+				<!--<add assembly="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304"/>
+				<add assembly="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304"/>
+				<add assembly="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304"/>
+				<add assembly="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304"/>
+				<add assembly="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304"/>-->
+				<add assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+				<add assembly="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+				<add assembly="Microsoft.Build.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+				<add assembly="System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+			</assemblies>
+			<buildProviders>
+				<add extension=".rdlc" type="Microsoft.Reporting.RdlBuildProvider, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+			</buildProviders>
+		</compilation>
+		<authentication mode="Forms">
+			<forms loginUrl="~/Account/Login.aspx" timeout="2880"/>
+		</authentication>
+		<membership defaultProvider="AspNetSqlMembershipProvider">
+			<providers>
+				<clear/>
+				<add name="AspNetSqlMembershipProvider" type="System.Web.Security.SqlMembershipProvider" connectionStringName="DP_MFA_DBConnectionString" enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10" applicationName="/"/>
+			</providers>
+		</membership>
+		<profile>
+			<providers>
+				<clear/>
+				<add name="AspNetSqlProfileProvider" type="System.Web.Profile.SqlProfileProvider" connectionStringName="DP_MFA_DBConnectionString" applicationName="/"/>
+			</providers>
+			<properties>
+				<add name="CardNumber"/>
+			</properties>
+		</profile>
+		<roleManager enabled="true">
+			<providers>
+				<clear/>
+				<add connectionStringName="DP_MFA_DBConnectionString" applicationName="/" name="AspNetSqlRoleProvider" type="System.Web.Security.SqlRoleProvider"/>
+				<add applicationName="/" name="AspNetWindowsTokenRoleProvider" type="System.Web.Security.WindowsTokenRoleProvider"/>
+			</providers>
+		</roleManager>
+		<customErrors mode="Off"/>
+	</system.web>
+	<system.net>
+		<mailSettings>
+			<smtp from="admin@mesgservice.com">
+				<!--<network host="relay-hosting.secureserver.net" userName="admin@mesgservice.com" password="Serv!ceadmin2012"/>-->
+				<network host="smtp.gmail.com" port="587" userName="admin@mesgservice.com" password="Serv!ceadmin2012" enableSsl="true"/>
+			</smtp>
+		</mailSettings>
+	</system.net>
+	<appSettings>
+		<add key="EVisaUrl" value="http://evisa.mesgservice.com"/>
+		<add key="MailFrom" value="MyanmarEmbassySingapore@mesgservice.com"/>
+		<add key="VerifySubject" value="Online Registration and Queue System Verification"/>
+		<add key="VerifyMailBody" value="Please login and put the verification code to complete your registration ! \n\nYour verification code is "/>
+		<add key="VerifyURL" value="\n\nGo to this link to put your verification code http://passport.mesgservice.com/ApplicationList.aspx"/>
+		<add key="QueueSubject" value="Online Registration and Queue System Approval Letter"/>
+		<add key="QueueMailBody" value="Your registration has been completed successfuly.\n\nPlease print your Queue Number in our system.\n\nGo to this link to print : http://passport.mesgservice.com/ViewQueueNumber.aspx"/>
+		<add key="DuplicateUserSubject" value="Someone override user information"/>
+		<add key="DuplicateUserMailBody" value="User Name : {UserName} \n Passport : {Passport} \n\nThis user is been added to database twice"/>
+		<add key="NeedToVerify" value="Sent Successfuly ! Please check your email and verify the code to complete the submitting . ."/>
+		<add key="WaitForQueue" value="You have verified the code successfuly ! We will send you the Queue Number soon if your application is valid."/>
+		<add key="Complete" value="Your registration is complete. You can print your Queue Number."/>
+		<add key="Reject" value="Sorry your application has been rejected !"/>
+		<add key="FailURL" value="http://localhost:4241/CheckInFail.aspx"/>
+		<add key="SuccessURL" value="http://localhost:4241/CheckInSuccess.aspx"/>
+    <add key="SmsLicenseKey" value="6c16833e-b70b-481b-992a-6c9613aaeaca"/>
+		<!--<add key="SmsAddress" value="www.smsdome.com/ws/smsdome.asmx/SendSMS?Message="/>-->
+    <add key="SmsAddress" value="http://www.smsdome.com/api/http/sendsms.aspx"/>
+    <add key="SmsUserName" value="MESG"/>
+    <add key="SmsPassword" value="AL120605"/>
+    <add key="SmsMessage" value="Please verify online passport application with this code : "/>
+		<add key="AdminEmailAddress" value="htoomyatlin@dwmcomputing.com"/>
+	</appSettings>
+	<system.webServer>
+		<modules runAllManagedModulesForAllRequests="true"/>
+		<validation validateIntegratedModeConfiguration="false"/>
+		<handlers>
+			<add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+		</handlers>
+	</system.webServer>
+	<location path="Default.aspx">
+		<system.web>
+			<authorization>
+				<allow users="*"/>
+			</authorization>
+		</system.web>
+	</location>
+	<location path="ContactUs.aspx">
+		<system.web>
+			<authorization>
+				<allow users="*"/>
+			</authorization>
+		</system.web>
+	</location>
+	<location path="FAQs.aspx">
+		<system.web>
+			<authorization>
+				<allow users="*"/>
+			</authorization>
+		</system.web>
+	</location>
+	<location path="Moderation.aspx">
+		<system.web>
+			<authorization>
+				<allow users="Moderator"/>
+				<deny users="?"/>
+			</authorization>
+		</system.web>
+	</location>
+	<location path="SpecialOperator.aspx">
+		<system.web>
+			<authorization>
+				<allow users="SpecialOperator"/>
+				<deny users="?"/>
+			</authorization>
+		</system.web>
+	</location>
+ <applicationSettings>
+  <DiamondCard.Properties.Settings>
+   <setting name="DiamondCard_SMSDome_SMSDome" serializeAs="String">
+    <value>http://www.smsdome.com/ws/smsdome.asmx</value>
+   </setting>
+  </DiamondCard.Properties.Settings>
+ </applicationSettings>
+</configuration>

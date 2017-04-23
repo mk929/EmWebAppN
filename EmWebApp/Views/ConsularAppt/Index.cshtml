@@ -1,0 +1,18 @@
+﻿@model EmWebApp.Models.ConsularApptVM
+<div>
+    @if (Model.ID > 0)
+    {
+        @Html.Partial("_MsgApptReceived", Model);
+    }
+    else
+    {
+        @Html.Partial("_ConsularApptForm", Model);
+    }
+</div>
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

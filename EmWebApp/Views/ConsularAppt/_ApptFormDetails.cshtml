@@ -1,0 +1,79 @@
+﻿
+@model EmWebApp.Models.ConsularApptVM
+<br />
+<center>
+    <table frame="box" cellspacing="2" cellpadding="5" bgcolor="#ffffff">
+        <tr>
+            <td><div>Appointment Date: </div></td>
+            <td><div><b>@(Model.AppointmentDate?.ToString("MMMM d, yyyy  [dddd]"))</b></div></td>
+        </tr>
+        <tr>
+            <td><div>Queue Number: </div></td>
+            <td><div><b>@Model.QueNumber</b></div></td>
+
+        </tr>
+        <tr>
+            <td><div>Appointment Type: </div></td>
+            <td><div><b>@ViewBag.AppointmentType</b></div></td>
+        </tr>
+    </table>
+</center>
+<br />
+
+<table margin="5" cellspacing="2" cellpadding="2" bgcolor="ffffff">
+
+    <tr>
+        <td style="background:#;"><div>Name: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.Name</b></div></td>
+        <td style="background:#;"><div>Gender: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@(Model.Gender=="M"?"Male":"Female")</b></div></td>
+    </tr>
+    <tr>
+        <td style="background:#;"><div>Date of Birth: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@(Model.DateOfBirth?.ToString("MMMM d, yyyy"))</b></div></td>
+        <td style="background:#;"><div>Place of Birth: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.PlaceOfBirth</b></div></td>
+    </tr>
+    <tr>
+        <td style="background:#;"><div>Nationality: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>Myanmar</b></div></td>
+        <td style="background:#;"><div>Passport Number: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.PassportNumber</b></div></td>
+    </tr>
+    <tr>
+        <td style="background:#;"><div>Psprt. Issue Date: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@(Model.PassportIssuedDate?.ToString("MMMM d, yyyy"))</b></div></td>
+        <td style="background:#;"><div>NRIC Number: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.NRIC_No</b></div></td>
+    </tr>
+    <tr>
+        <td style="background:#;"><div>Sgp.IC/Permit No: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.StayPermitNumber</b></div></td>
+        <td style="background:#;"><div>Contact Email: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.ContactEmail</b></div></td>
+    </tr>
+    <tr>
+        <td style="background:#;"><div>Company Name: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.EmployerName</b></div></td>
+        <td style="background:#;"><div>Occupation: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.Occupation</b></div></td>
+    </tr>
+    <tr>
+        <td style="background:#;"><div>(Sgp.) Address Line 1: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.ContactAddr1</b></div></td>
+        <td style="background:#;"><div>(Sgp.) Address Line 2: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.ContactAddr2</b></div></td>
+    </tr>
+    <tr>
+        <td style="background:#;"><div>Contact Phone: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.ContactPhone</b></div></td>
+        <td style="background:#;"><div>(MM) Address Line 1: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.HomeAddr1</b></div></td>
+    </tr>
+    <tr>
+        <td style="background:#;"><div>(MM) Address Line 2: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.HomeAddr2</b></div></td>
+        <td style="background:#;"><div>(MM) Phone: </div></td>
+        <td style="background:#ffffff;"><div style="padding-left:15px"><b>@Model.HomePhone</b></div></td>
+    </tr>
+</table>
