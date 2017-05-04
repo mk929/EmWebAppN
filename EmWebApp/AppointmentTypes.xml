@@ -6,7 +6,7 @@
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="RenewPassport.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -18,7 +18,7 @@
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p8Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="LossPassport.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -26,11 +26,11 @@
 
   <ConsularAppointmentType>
     <Code>3</Code>
-    <Description_EN>New Born Baby Passport</Description_EN>
+    <Description_EN>Income Tax</Description_EN>
     <Description_MM></Description_MM>
-    <ConsularLetterPdfTemplate>ApptLtr1p8Tmpl.pdf</ConsularLetterPdfTemplate>
+    <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="IncomeTax.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -38,11 +38,11 @@
 
   <ConsularAppointmentType>
     <Code>4</Code>
-    <Description_EN>Seaman to Shore Job</Description_EN>
+    <Description_EN>Income Tax Payment Receipt Duplicate/ Attestation for Tax Payment</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="IncomeTaxReceipt_Duplicate.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -50,11 +50,11 @@
 
   <ConsularAppointmentType>
     <Code>5</Code>
-    <Description_EN>Income Tax</Description_EN>
+    <Description_EN>General Power / Special Power / Notary Attestation</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="GeneralAndSpecialPower.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -62,11 +62,11 @@
 
   <ConsularAppointmentType>
     <Code>6</Code>
-    <Description_EN>Recommendation Lettter for Being Student</Description_EN>
+    <Description_EN>Recommendation Letter for Being Student</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="student.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -74,11 +74,11 @@
 
   <ConsularAppointmentType>
     <Code>7</Code>
-    <Description_EN>Recommendation Lettter for Being Dependent</Description_EN>
+    <Description_EN>Recommendation Letter for Being Dependent</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="Dependent.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -86,11 +86,11 @@
 
   <ConsularAppointmentType>
     <Code>8</Code>
-    <Description_EN>Recommendation Lettter for Being Unemployed</Description_EN>
+    <Description_EN>Recommendation Letter for Being Unemployed</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="BeingUnEmployed.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -98,11 +98,11 @@
 
   <ConsularAppointmentType>
     <Code>9</Code>
-    <Description_EN>Return Ticket Fee Deposit</Description_EN>
+    <Description_EN>Seaman to Shore Job</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="SeamanToShorejob.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -110,47 +110,50 @@
 
   <ConsularAppointmentType>
     <Code>10</Code>
+    <Description_EN>Return Air Ticket Fee Deposit</Description_EN>
+    <Description_MM></Description_MM>
+    <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
+    <Attachments>
+      <Attachment name="ReturnAirTicketDeposit.pdf"
+                  path="Documents\Attachments\"
+                  mediaType ="application/pdf" />
+    </Attachments>
+  </ConsularAppointmentType>
+
+
+  <ConsularAppointmentType>
+    <Code>11</Code>
+    <Description_EN>Return Air Ticket Fee Refund</Description_EN>
+    <Description_MM></Description_MM>
+    <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
+    <Attachments>
+      <Attachment name="ReturnAirTicketRefund.pdf"
+                  path="Documents\Attachments\"
+                  mediaType ="application/pdf" />
+    </Attachments>
+  </ConsularAppointmentType>
+  
+
+  <ConsularAppointmentType>
+    <Code>12</Code>
     <Description_EN>Invitation of Monks</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="InvitationToMonk.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
   </ConsularAppointmentType>
 
-  <ConsularAppointmentType>
-    <Code>11</Code>
-    <Description_EN>General Power / Special Power / Notary Attestation</Description_EN>
-    <Description_MM></Description_MM>
-    <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
-    <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
-                  path="Documents\Attachments\"
-                  mediaType ="application/pdf" />
-    </Attachments>
-  </ConsularAppointmentType>
-
-  <ConsularAppointmentType>
-    <Code>12</Code>
-    <Description_EN>Renouncement of New Born Baby Passport</Description_EN>
-    <Description_MM></Description_MM>
-    <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
-    <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
-                  path="Documents\Attachments\"
-                  mediaType ="application/pdf" />
-    </Attachments>
-  </ConsularAppointmentType>
 
   <ConsularAppointmentType>
     <Code>13</Code>
-    <Description_EN>Renouncement of New Born Baby Passport (Second Time)</Description_EN>
+    <Description_EN>New Born Baby Passport</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="NewBornPassport.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -158,11 +161,11 @@
 
   <ConsularAppointmentType>
     <Code>14</Code>
-    <Description_EN>Income Tax Payment Receipt Duplicate/ Attestation for Tax Payment</Description_EN>
+    <Description_EN>New Born Baby Passport (Second Time)</Description_EN>
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="NewBorn(SecondTime).pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
@@ -174,10 +177,22 @@
     <Description_MM></Description_MM>
     <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
     <Attachments>
-      <Attachment name="Appointment Requirements (English).pdf"
+      <Attachment name="ReCitizenship.pdf"
                   path="Documents\Attachments\"
                   mediaType ="application/pdf" />
     </Attachments>
   </ConsularAppointmentType>
+
+  <ConsularAppointmentType>
+    <Code>16</Code>
+    <Description_EN>Renouncement of Myanmar Citizenship</Description_EN>
+    <Description_MM></Description_MM>
+    <ConsularLetterPdfTemplate>ApptLtr1p1Tmpl.pdf</ConsularLetterPdfTemplate>
+    <Attachments>
+      <Attachment name="RenouncementOfCitizenship.pdf"
+                  path="Documents\Attachments\"
+                  mediaType ="application/pdf" />
+    </Attachments>
+  </ConsularAppointmentType>  
 
 </ConsularAppointmentTypes>

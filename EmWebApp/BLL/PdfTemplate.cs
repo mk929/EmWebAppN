@@ -89,7 +89,7 @@ namespace EmWebApp.BLL
 
         public static string GetQrCodeString(ConsularApptVM consularApptVM)
         {
-            return String.Format(@"{0}$${1}$${2}$${3}$${4}$${5}",
+            return String.Format(@"{0}$${1}$${2}$${3}$${4}$${5}$$JOB",
 
                 consularApptVM.Name,
                 string.Format("{0:dd-MM-yyyy}", consularApptVM.DateOfBirth),

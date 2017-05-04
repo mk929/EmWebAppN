@@ -84,7 +84,25 @@ div.centerscreen {
 
 /* Highlighted Text */
 .highlight {
-    background:#ffd800; 
-    padding:5px;
-    text-decoration:solid;
+    background: #ffd800;
+    padding: 5px;
+    text-decoration: solid;
+}
+
+/*
+https://mmwebfonts.comquas.com/fonts/?font=myanmar3
+@font-face {
+    font-family: 'Myanmar3';
+    src: local('Myanmar3'), url('https://mmwebfonts.comquas.com/fonts/myanmar3.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/myanmar3.ttf') format('ttf');
+}
+*/
+/* Note: Add MimeType  .woff to application/font-woff in IIS*/
+@font-face {
+    font-family: 'Myanmar3';
+    src: local('Myanmar3');
+    src: url('fonts/myanmar3.eot') format('eot'), url('fonts/myanmar3.woff') format('woff'), url('fonts/myanmar3.ttf') format('truetype');
+}
+
+html, body, p, div, *, table, h4 {
+  font-family: 'Myanmar3', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

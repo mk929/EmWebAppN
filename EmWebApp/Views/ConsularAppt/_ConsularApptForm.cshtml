@@ -28,12 +28,12 @@
 
     <div class="row text-center">
         <h3>Embassy Consular Appointment Form</h3>
-        <h4>(ကောင်စစ်ဝန် တွေ့ဆုံခွင့် လျောက်လွှာပုံစံ)</h4>
+        <h4>(ကောင်စစ်ဆိုင်ရာ လျောက်လွှာပုံစံ)</h4>
     </div>
     @using (Html.BeginForm())
             {
         @Html.AntiForgeryToken()
-        <div class="form-horizontal" role="form">
+        <div class="form-horizontal" role="form" lang="mm">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="col-md-12">
@@ -42,7 +42,7 @@
                     <div class="col-md-7">
                         @Html.DropDownListFor(model => model.AppointmentDate, workingDays, "-- Select Appointment Date --"
 , new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })The appointment dates are open up to two weeks in advance.<br /> (ရက်ချိန်းကို ၂ ပတ် အတွင်း ကြိုတင်ရယူနိုင်ပါသည်။) 
                     </div>
                 </div>
             </div>
@@ -54,6 +54,7 @@
                  , new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.AppointmentType, "", new { @class = "text-danger" })
                     </div>
+                    
                 </div>
             </div>
             <br />

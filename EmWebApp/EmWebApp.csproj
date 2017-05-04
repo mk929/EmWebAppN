@@ -229,7 +229,6 @@
     <Content Include="Content\images\myanmar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Site_Orig.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -295,6 +294,15 @@
     <Content Include="Documents\PdfTemplates\ApptLtr1p1Tmpl.pdf" />
     <Content Include="Documents\PdfTemplates\ApptLtr1p8Tmpl.pdf" />
     <Content Include="Documents\Attachments\Appointment Requirements %28English%29.pdf" />
+    <Content Include="Content\fonts\myanmar3.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\fonts\myanmar3.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\fonts\myanmar3.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\Debug-File-Test.pubxml" />
     <None Include="Properties\PublishProfiles\EmWebApp01.pubxml" />
     <None Include="Properties\PublishProfiles\Release-Azure-EmWebApp01.pubxml" />
