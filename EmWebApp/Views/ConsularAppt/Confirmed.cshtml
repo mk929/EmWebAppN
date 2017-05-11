@@ -3,6 +3,52 @@
 @{
     ViewBag.Title = "Consular Appointment Request - Confirmed";
 }
-<div>
-    @Html.Partial("_MsgApptConfirmed", Model)
+<div id="updateTargetDiv">
+    <center>
+        <span class="glyphicon glyphicon-refresh spinning"></span> ...Processing ...
+    </center>
 </div>
+
+@using (Ajax.BeginForm("ConfirmPosted", "ConsularAppt", new { },
+                        new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "updateTargetDiv" },
+                        new { id = "AjaxConfirmedForm" }))
+
+{
+    <input type="hidden" name="confirmedId" value="@ViewBag.ConfirmedId" />
+    <input type="hidden" name="confirmedCode" value="@ViewBag.ConfirmedCode" />
+}
+
+@section Scripts {    
+
+    <script type="text/javascript">
+
+        $(function () {
+            var $form = $("form[id='AjaxConfirmedForm']");
+            var $target = $($form.attr("data-ajax-update"));
+            var options = {
+                url: $form.attr("action"),
+                type: $form.attr("method"),
+                data: $form.serialize(),
+                error: function () {
+                    $target.html("Error");
+                }
+            }
+            $.ajax(options).done(function (data) {
+                $target.replaceWith(data);
+            });
+            return false;
+        });
+
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+

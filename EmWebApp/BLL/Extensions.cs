@@ -44,9 +44,9 @@ namespace EmWebApp.BLL
     }
     public static class LookupExtensions
     {
-        public static SelectList WorkingDaysSelectList(this DateTime self, int noOfdaysInFuture)
+        public static SelectList WorkingDaysSelectList(this DateTime self, int noOfdaysInFuture, bool todayIncluded)
         {
-            IEnumerable<DateTime> wdays = self.WorkingDays(self.AddDays(noOfdaysInFuture));
+            IEnumerable<DateTime> wdays = self.WorkingDays(self.AddDays(noOfdaysInFuture), todayIncluded);
 
             var list = from dt in wdays
                        select new { Name = dt.ToString("dd MMM, yyyy  [dddd]"), Value = dt.Date };
@@ -54,16 +54,18 @@ namespace EmWebApp.BLL
             return new SelectList(list, "Value", "Name");
         }
 
-        public static IEnumerable<DateTime> WorkingDays(this DateTime self, int noOfdaysInFuture)
+        public static IEnumerable<DateTime> WorkingDays(this DateTime self, int noOfdaysInFuture, bool todayIncluded)
         {
-            return self.WorkingDays(self.AddDays(noOfdaysInFuture));
+            return self.WorkingDays(self.AddDays(noOfdaysInFuture), todayIncluded);
         }
-        public static IEnumerable<DateTime> WorkingDays(this DateTime self, DateTime toDate)
+        public static IEnumerable<DateTime> WorkingDays(this DateTime self, DateTime toDate, bool todayIncluded)
         {
             // if afternoon, skip today.
+            //var range = Enumerable.Range(
+            //    ((self.Hour > 12) ? 1 : 0), new TimeSpan(toDate.Ticks - self.Ticks).Days);
+            
             var range = Enumerable.Range(
-                ((self.Hour > 12) ? 1 : 0), new TimeSpan(toDate.Ticks - self.Ticks).Days);
-
+                (todayIncluded ? 0 : 1), new TimeSpan(toDate.Ticks - self.Ticks).Days);
 
             var Holidays = from dt in BLL.Holidays.List
                     select dt.DT;

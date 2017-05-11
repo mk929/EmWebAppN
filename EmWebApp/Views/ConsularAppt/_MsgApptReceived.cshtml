@@ -1,36 +1,46 @@
 ﻿@model EmWebApp.Models.ConsularApptVM
 
 <br />
-<div style="background:#fafafa; border:solid 0px; padding: 20px; height:80vh;">
-        <h4><strong>Your consular appointment request is received.</strong></h4><br />
-        <center>
-            <table border=0 frame="box" cellspacing="2" cellpadding="5" bgcolor="#ffffff">
-                <tr>
-                    <td style="background:#eeeeee;"><div>Name: </div></td>
-                    <td style="background:#ffffff;"><div>@Model.Name</div></td>
-                </tr>
-                <tr>
-                    <td style="background:#eeeeee;"><div>Passport Number: </div></td>
-                    <td style="background:#ffffff;"><div>@Model.PassportNumber</div></td>
-                </tr>
-                <tr>
-                    <td style="background:#eeeeee;"><div>Service Type: </div></td>
-                    <td style="background:#ffffff;"><div>@ViewBag.AppointmentType</div></td>
-                </tr>
-                <tr>
-                    <td style="background:#eeeeee;"><div>Requested Appointment Date: </div></td>
-                    <td style="background:#ffffff;"><div>@(Model.AppointmentDate?.ToString("MMMM d, yyyy  [dddd]"))</div></td>
-                </tr>
-                <tr>
-                    <td style="background:#eeeeee;"><div>Appointment Status: </div></td>
-                    <td style="background:#ffffff;"><span style="background:#faface; padding:5px;"><b>&nbsp;Email verification Required&nbsp;</b></span></td>
-                </tr>
-            </table>
-        </center>
-        <br /><br />
-        To process the appointment request, we need to verify your email. We have sent an verification email to your email address: <strong>@Model.ContactEmail</strong>.
-    <br /><span style="background:#faface; padding:5px;text-decoration:solid;">Please click the link in the verification email to confirm.</span> 
-    <br /><br />
-        <b>Note: Your appointment request will be processed ONLY after you finish the email confirmation.</b>
+
+<div class="embassypaperbg">
+    <div class="embassypaper">
+        <p>
+            <h4><strong>Your consular appointment request is received.</strong></h4><br />
+            <center>
+                <table border=0 frame="box" cellspacing="2" cellpadding="5" bgcolor="#ffffff">
+                    <tr>
+                        <td style="background:#eeeeee;"><div>Name: </div></td>
+                        <td style="background:#ffffff;"><div>@Model.Name</div></td>
+                    </tr>
+                    <tr>
+                        <td style="background:#eeeeee;"><div>Passport Number: </div></td>
+                        <td style="background:#ffffff;"><div>@Model.PassportNumber</div></td>
+                    </tr>
+                    <tr>
+                        <td style="background:#eeeeee;"><div>Service Type: </div></td>
+                        <td style="background:#ffffff;"><div>@ViewBag.AppointmentType</div></td>
+                    </tr>
+                    <tr>
+                        <td style="background:#eeeeee;"><div>Requested Appointment Date: </div></td>
+                        <td style="background:#ffffff;"><div>@(Model.AppointmentDate?.ToString("MMMM d, yyyy  [dddd]"))</div></td>
+                    </tr>
+                    <tr>
+                        <td style="background:#eeeeee;"><div>Appointment Status: </div></td>
+                        <td style="background:#ffffff;"><span style="background:#faface; padding:5px;"><b>&nbsp;Email verification Required&nbsp;</b></span></td>
+                    </tr>
+                </table>
+            </center>
+            <br /><br />
+        </p>
+        <p>
+            To process the appointment request, we need to verify your email. We have sent an verification email to your email address: <strong>@Model.ContactEmail</strong>.
+            <br /><span style="background:#faface; padding:5px;text-decoration:solid;">Please click the link in the verification email to confirm.</span>
+            <br /><br />
+            <b>Note: Your appointment request will be processed ONLY after you finish the email confirmation.</b>
+
+        </p>
+    </div>
 </div>
+<br /><br /><br />
+<br /><br /><br />
 

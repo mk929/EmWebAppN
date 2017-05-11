@@ -74,13 +74,25 @@ div.centerscreen {
     background-color: #f3f3f3;
 }
 
-.embassypaper {
+.embassypaper01 {
     padding: 30px;
     padding-left: 50px;
     border: 0px solid #666;
     background: #fbfbfb;
     box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
 }
+
+.embassypaperbg {
+background:#fafafa; border:solid 0px; padding: 20px; height:80vh;
+}
+
+.embassypaper {
+    margin: 0 auto; padding: 15px; border: 0px solid #666;
+    background: #fbfbfb;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    font-family: inherit;
+}
+
 
 /* Highlighted Text */
 .highlight {
@@ -89,13 +101,36 @@ div.centerscreen {
     text-decoration: solid;
 }
 
-/*
-https://mmwebfonts.comquas.com/fonts/?font=myanmar3
-@font-face {
-    font-family: 'Myanmar3';
-    src: local('Myanmar3'), url('https://mmwebfonts.comquas.com/fonts/myanmar3.woff') format('woff'), url('https://mmwebfonts.comquas.com/fonts/myanmar3.ttf') format('ttf');
+
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
 }
-*/
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+.center-div
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
 /* Note: Add MimeType  .woff to application/font-woff in IIS*/
 @font-face {
     font-family: 'Myanmar3';
@@ -103,6 +138,13 @@ https://mmwebfonts.comquas.com/fonts/?font=myanmar3
     src: url('fonts/myanmar3.eot') format('eot'), url('fonts/myanmar3.woff') format('woff'), url('fonts/myanmar3.ttf') format('truetype');
 }
 
+/*
 html, body, p, div, *, table, h4 {
   font-family: 'Myanmar3', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+*/
+
+.form-horizontal .control-label {
+  font-family: Myanmar3
+}
+

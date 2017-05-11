@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmWebApp", "EmWebApp\EmWebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmDbXml", "EmDbXml\EmDbXml.csproj", "{CD7AF297-1919-44CC-92B7-CE6BD46CDB21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Visa", "E-Visa\E-Visa.csproj", "{DAE26989-4C7B-4EAD-940D-74B3EEA6C2CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CD7AF297-1919-44CC-92B7-CE6BD46CDB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD7AF297-1919-44CC-92B7-CE6BD46CDB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD7AF297-1919-44CC-92B7-CE6BD46CDB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE26989-4C7B-4EAD-940D-74B3EEA6C2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE26989-4C7B-4EAD-940D-74B3EEA6C2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE26989-4C7B-4EAD-940D-74B3EEA6C2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE26989-4C7B-4EAD-940D-74B3EEA6C2CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

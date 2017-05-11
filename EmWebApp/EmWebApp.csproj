@@ -293,7 +293,6 @@
     </Content>
     <Content Include="Documents\PdfTemplates\ApptLtr1p1Tmpl.pdf" />
     <Content Include="Documents\PdfTemplates\ApptLtr1p8Tmpl.pdf" />
-    <Content Include="Documents\Attachments\Appointment Requirements %28English%29.pdf" />
     <Content Include="Content\fonts\myanmar3.eot">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -382,11 +381,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Home\_ReqDocList.cshtml" />
-    <Content Include="Views\Home\About - Copy.cshtml" />
     <Content Include="Views\Error\DisplayError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Documents\Attachments\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

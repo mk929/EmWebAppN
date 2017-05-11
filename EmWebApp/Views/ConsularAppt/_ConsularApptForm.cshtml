@@ -5,7 +5,7 @@
     SelectList genderList = new SelectList(new[] {  new {Name = "Male", Value="M"},
                                                     new {Name = "Female", Value="F"}}, "Value", "Name");
 
-    SelectList workingDays = DateTime.Now.WorkingDaysSelectList(15);
+    SelectList workingDays = DateTime.Now.WorkingDaysSelectList(15, Request.IsAuthenticated);
     SelectList appointmentTypes = DropDownLookups.GetAppointmentTypes();
 
     SelectList stayTypeList = new SelectList(EmWebAppConfig.StayTypeDict.Select(p =>
@@ -13,6 +13,7 @@
                                                 "Value", "Name");
 
 }
+
 <style>
     input,
     select,
@@ -21,14 +22,11 @@
     }
 </style>
 
-<div style="margin: 0 auto; padding: 15px;
-             border: 0px solid #666;
-             background: #fbfbfb;
-             box-shadow: 0px 0px 3px rgba(0,0,0,0.3)">
+<div class="embassypaper">
 
     <div class="row text-center">
         <h3>Embassy Consular Appointment Form</h3>
-        <h4>(ကောင်စစ်ဆိုင်ရာ လျောက်လွှာပုံစံ)</h4>
+        <h4 style="font-family: Myanmar3">(ကောင်စစ်ဆိုင်ရာ လျောက်လွှာပုံစံ)</h4>
     </div>
     @using (Html.BeginForm())
             {
@@ -42,7 +40,7 @@
                     <div class="col-md-7">
                         @Html.DropDownListFor(model => model.AppointmentDate, workingDays, "-- Select Appointment Date --"
 , new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })The appointment dates are open up to two weeks in advance.<br /> (ရက်ချိန်းကို ၂ ပတ် အတွင်း ကြိုတင်ရယူနိုင်ပါသည်။) 
+                        @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })The appointment dates open up to two weeks in advance.<br /> (ရက်ချိန်းကို ၂ ပတ် အတွင်း ကြိုတင်ရယူနိုင်ပါသည်။)
                     </div>
                 </div>
             </div>
@@ -54,7 +52,7 @@
                  , new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.AppointmentType, "", new { @class = "text-danger" })
                     </div>
-                    
+
                 </div>
             </div>
             <br />
@@ -136,7 +134,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="form-group">
-                            @Html.LabelFor(model => model.StayPermitNumber, htmlAttributes: new { @class = "control-label col-md-4" })
+                        @Html.LabelFor(model => model.StayPermitNumber, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-7">
                             @Html.EditorFor(model => model.StayPermitNumber, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.StayPermitNumber, "", new { @class = "text-danger" })
@@ -167,7 +165,6 @@
                             @Html.ValidationMessageFor(model => model.EmployerName, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Occupation, htmlAttributes: new { @class = "control-label col-md-4" })
@@ -227,13 +224,7 @@
                 </div>
             </div>
         </div>
-            <div class="clearfix"></div>
+        <div class="clearfix"></div>
             <br />
     }
 </div>
-@section Scripts {
-
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/jqueryval")
-
-}

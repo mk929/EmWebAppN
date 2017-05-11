@@ -78,8 +78,24 @@ namespace EmWebApp.Controllers
         }
 
         // GET: ConsularAppt/Confirmed/5
-        public async Task<ActionResult> Confirmed(int id, string code)
+        [HttpGet]
+        public ActionResult Confirmed(int id, string code)
         {
+            ViewBag.ConfirmedId = id;
+            ViewBag.ConfirmedCode = code;
+            return View();
+        }
+        
+
+        [HttpPost]
+        public async Task<ActionResult> ConfirmPosted(string confirmedId, string confirmedCode)
+        {
+            if (!Request.IsAjaxRequest())
+                return Content("Request Error.");
+
+            int id = int.Parse(confirmedId);
+            string code = confirmedCode;
+
             DateTime? confirmedApptDate = null;
             int? confirmedQueNumber = 0;
             ConsularApptVM consularApptVM = EmbassyAppDb.ConfirmConsularAppt(id, code, ref confirmedApptDate, ref confirmedQueNumber);
@@ -133,7 +149,8 @@ namespace EmWebApp.Controllers
 
                 smtp.Prep();
                 await smtp.SendMailAsync(mailMsg);
-                return View(consularApptVM);
+                // return View(consularApptVM);
+                return PartialView("_MsgApptConfirmed", consularApptVM);
             }
         }
     }
