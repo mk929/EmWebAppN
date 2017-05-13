@@ -382,6 +382,7 @@
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Home\_ReqDocList.cshtml" />
     <Content Include="Views\Error\DisplayError.cshtml" />
+    <Content Include="Views\ConsularAppt\_MsgApptConfirmedByAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

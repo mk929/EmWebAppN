@@ -44,9 +44,9 @@ namespace EmWebApp.BLL
     }
     public static class LookupExtensions
     {
-        public static SelectList WorkingDaysSelectList(this DateTime self, int noOfdaysInFuture, bool todayIncluded)
+        public static SelectList WorkingDaysSelectList(this DateTime self, int noOfdaysInFuture, bool isAdmin)
         {
-            IEnumerable<DateTime> wdays = self.WorkingDays(self.AddDays(noOfdaysInFuture), todayIncluded);
+            IEnumerable<DateTime> wdays = self.WorkingDays(self.AddDays(noOfdaysInFuture), isAdmin);
 
             var list = from dt in wdays
                        select new { Name = dt.ToString("dd MMM, yyyy  [dddd]"), Value = dt.Date };
@@ -54,27 +54,35 @@ namespace EmWebApp.BLL
             return new SelectList(list, "Value", "Name");
         }
 
-        public static IEnumerable<DateTime> WorkingDays(this DateTime self, int noOfdaysInFuture, bool todayIncluded)
+        private static IEnumerable<DateTime> WorkingDays(this DateTime self, int noOfdaysInFuture, bool isAdmin)
         {
-            return self.WorkingDays(self.AddDays(noOfdaysInFuture), todayIncluded);
+            return self.WorkingDays(self.AddDays(noOfdaysInFuture), isAdmin);
         }
-        public static IEnumerable<DateTime> WorkingDays(this DateTime self, DateTime toDate, bool todayIncluded)
+        private static IEnumerable<DateTime> WorkingDays(this DateTime self, DateTime toDate, bool isAdmin)
         {
-            // if afternoon, skip today.
-            //var range = Enumerable.Range(
-            //    ((self.Hour > 12) ? 1 : 0), new TimeSpan(toDate.Ticks - self.Ticks).Days);
+            if (isAdmin)
+            {
+                var adminRange = Enumerable.Range(0, new TimeSpan(toDate.Ticks - self.Ticks).Days);
+                return from i in adminRange
+                       let date = self.Date.AddDays(i)
+                       select date;
+            }
             
-            var range = Enumerable.Range(
-                (todayIncluded ? 0 : 1), new TimeSpan(toDate.Ticks - self.Ticks).Days);
+            var holidays = from dt in BLL.Holidays.List
+                            select dt.DT;
 
-            var Holidays = from dt in BLL.Holidays.List
-                    select dt.DT;
-            
-            var exclude = new List<DayOfWeek> { DayOfWeek.Saturday, DayOfWeek.Sunday };
+            var weekends = new List<DayOfWeek> { DayOfWeek.Saturday, DayOfWeek.Sunday };
+
+            var maxedOutdates = EmbassyAppDb.GetClosedApptDates(EmWebAppConfig.QueueDailyMax);
+
+            // skip today
+            var range = Enumerable.Range(1, new TimeSpan(toDate.Ticks - self.Ticks).Days);
 
             return from i in range
                    let date = self.Date.AddDays(i)
-                   where !exclude.Contains(date.DayOfWeek) && !Holidays.Contains(date)
+                   where !weekends.Contains(date.DayOfWeek) 
+                       && !holidays.Contains(date) 
+                       && !maxedOutdates.Contains(date)
                    select date;
         }
     }

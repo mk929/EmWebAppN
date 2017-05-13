@@ -13,6 +13,8 @@ namespace EmWebApp
         public static readonly string DbConnectionString;
 
         public static readonly int QueueNumberInitial;
+        public static readonly int QueueDailyMax;
+        
         public static readonly string EmailAddress;
         public static readonly string EmailUser;
         public static readonly string EmailSubj_Confirmed;
@@ -21,6 +23,9 @@ namespace EmWebApp
         public static readonly string AppointmentTypeFile;
         public static readonly string HolidaysFile;
         public static readonly string Emblem_Logo;
+
+
+        public static readonly bool PrefilledFormTest;
 
         public static readonly string CnslrLtrPdfTmplPath;
 
@@ -39,6 +44,7 @@ namespace EmWebApp
             DbConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             QueueNumberInitial = Convert.ToInt32(ConfigurationManager.AppSettings["QueueNumberInitial"]);
+            QueueDailyMax = Convert.ToInt32(ConfigurationManager.AppSettings["QueueDailyMax"]);
             EmailAddress = ConfigurationManager.AppSettings["EmailAddress"];
             EmailUser = ConfigurationManager.AppSettings["EmailUser"];
             EmailSubj_Confirmed = ConfigurationManager.AppSettings["EmailSubj_Confirmed"];
@@ -56,6 +62,9 @@ namespace EmWebApp
             //string pdfTmplFilePath = basePath + EmWebAppConfig.ConsularLetterPdfTemplate;
             string basePath = HostingEnvironment.ApplicationPhysicalPath;
             CnslrLtrPdfTmplPath = basePath + ConfigurationManager.AppSettings["ConsularLetterPdfTemplate"];
+
+            PrefilledFormTest = Convert.ToBoolean(ConfigurationManager.AppSettings["PrefilledFormTest"]);
+            
         }
     }
 }

@@ -36,7 +36,23 @@ namespace EmWebApp.Models.Data
                 }
             }
         }
-
+        public static List<DateTime> GetClosedApptDates(int maxAppts)
+        {
+            using (SqlConnection conn = GetDBConnection())
+            {
+                conn.Open();
+                string sql = String.Format("SELECT AppointmentDate from [dbo].[ConsularAppointments] where AppointmentDate > '{0}  23:59:59' and AppointmentStatus = 1 group by AppointmentDate having count(*) >= {1} order by AppointmentDate", DateTime.Today.ToString("yyyy-MM-dd"), maxAppts);
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    var dt = new DataTable();
+                    dt.Load(sdr);
+                    var list = (from dr in dt.AsEnumerable()
+                                select dr.Field<DateTime>("AppointmentDate")).ToList();
+                    return list;
+                }
+            }
+        }
         public static List<ConsularApptVM> GetConsularApptsAdmin(string passportNo = null, DateTime? apptDate = null)
         {
             using (SqlConnection conn = GetDBConnection())

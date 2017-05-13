@@ -2,7 +2,7 @@
 <div>
     @if (Model.ID > 0)
     {
-        @Html.Partial("_MsgApptReceived", Model)
+        @Html.Partial((String)@ViewBag.PartialHtml, Model)
     }
     else
     {

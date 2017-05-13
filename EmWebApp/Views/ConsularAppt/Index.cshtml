@@ -2,10 +2,10 @@
 <div>
     @if (Model.ID > 0)
     {
-        @Html.Partial("_MsgApptReceived", Model);
-    }
-    else
-    {
+		@Html.Partial((String)@ViewBag.PartialHtml, Model)
+	}
+	else
+	{
         @Html.Partial("_ConsularApptForm", Model);
     }
 </div>

@@ -1,4 +1,5 @@
-﻿using EmWebApp.BLL;
+﻿using EmWebApp;
+using EmWebApp.BLL;
 using EmWebApp.Models;
 using EmWebApp.Models.Data;
 using EmWebApp.Util;
@@ -21,7 +22,13 @@ namespace EmWebApp.Controllers
         // GET: ConsularAppt/Create
         public ActionResult Create()
         {
-            ViewBag.Title = "Consular Appointment Request - New";
+            ViewBag.Title = "Embassy Consular Appointment Form";
+            if (Request.IsAuthenticated)
+                ViewBag.Title = "Embassy Consular Appointment Form (Admin)";
+
+            if (EmWebAppConfig.PrefilledFormTest)
+                return View(CATestData.GetNewAppt());            
+
             return View(new ConsularApptVM());
         }
 
@@ -29,15 +36,34 @@ namespace EmWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "AppointmentDate,AppointmentType,Name,Gender,DateOfBirth,PlaceOfBirth,Nationality,NRIC_No,PassportNumber,PassportIssuedDate,ConsulateLocation,StayType,StayPermitNumber,EmployerName,Occupation,ContactAddr1,ContactAddr2,ContactPhone,ContactEmail,HomeAddr1,HomeAddr2,HomePhone,Note")] ConsularApptVM consularApptVM)
         {
-            EmbassyAppDb.AddConsularAppt(consularApptVM, EmWebAppConfig.QueueNumberInitial);
-            Email email = this.GetConfirmationRequestEmail(consularApptVM);
-            using (var smtp = new SmtpClient())
+            if (!Request.IsAuthenticated)
             {
-                smtp.Prep();
-                await smtp.SendMailAsync(email.Message);
+                ViewBag.Title = "Embassy Consular Appointment Form";
+                EmbassyAppDb.AddConsularAppt(consularApptVM, EmWebAppConfig.QueueNumberInitial);
+
+                Email email = this.GetConfirmationRequestEmail(consularApptVM);
+                using (var smtp = new SmtpClient())
+                {
+                    smtp.Prep();
+                    await smtp.SendMailAsync(email.Message);
+                }
+
+                ViewBag.PartialHtml = "_MsgApptReceived";
+            }
+            else
+            {
+                ViewBag.Title = "Embassy Consular Appointment Form (Admin)";
+                consularApptVM.Note = "[ADMIN]" + consularApptVM.Note;
+                EmbassyAppDb.AddConsularAppt(consularApptVM, EmWebAppConfig.QueueNumberInitial);
+                DateTime? confirmedApptDate = null;
+                int? confirmedQueNumber = 0;
+                ConsularApptVM consularApptVM2 = EmbassyAppDb.ConfirmConsularAppt(consularApptVM.ID, consularApptVM.ActivationCode, ref confirmedApptDate, ref confirmedQueNumber);
+
+                consularApptVM.QueueNumber = confirmedQueNumber.GetValueOrDefault();
+
+                ViewBag.PartialHtml = "_MsgApptConfirmedByAdmin";
             }
 
-            @ViewBag.Title = "Consular Appointment Request - Received";
             AppointmentType appointmentType = ConsularAppointmentTypes.GetAppointmentType(consularApptVM.AppointmentType);
             ViewBag.AppointmentType = appointmentType.Description;
 
@@ -48,8 +74,7 @@ namespace EmWebApp.Controllers
         [Authorize]  /* For Testing Prefilled Forms */
         public ActionResult Index()
         {
-
-            ViewBag.Title = "Consular Appointment Request - New";
+            ViewBag.Title = "Embassy Consular Appointment Form (Admin)";
             ConsularApptVM ca = CATestData.GetNewAppt();
             return View(ca);
         }
@@ -57,20 +82,24 @@ namespace EmWebApp.Controllers
         [Authorize]  /* For Testing Prefilled Forms */
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Index([Bind(Include = "AppointmentDate,AppointmentType,Name,Gender,DateOfBirth,PlaceOfBirth,Nationality,NRIC_No,PassportNumber,PassportIssuedDate,ConsulateLocation,StayType,StayPermitNumber,EmployerName,Occupation,ContactAddr1,ContactAddr2,ContactPhone,ContactEmail,HomeAddr1,HomeAddr2,HomePhone,Note")] ConsularApptVM consularApptVM)
+        public ActionResult Index([Bind(Include = "AppointmentDate,AppointmentType,Name,Gender,DateOfBirth,PlaceOfBirth,Nationality,NRIC_No,PassportNumber,PassportIssuedDate,ConsulateLocation,StayType,StayPermitNumber,EmployerName,Occupation,ContactAddr1,ContactAddr2,ContactPhone,ContactEmail,HomeAddr1,HomeAddr2,HomePhone,Note")] ConsularApptVM consularApptVM)
         {
             if (!ModelState.IsValid)
                 this.LogModelStateError();
 
-            EmbassyAppDb.AddConsularAppt(consularApptVM, EmWebAppConfig.QueueNumberInitial);
-            Email email = this.GetConfirmationRequestEmail(consularApptVM);
-            using (var smtp = new SmtpClient())
-            {
-                smtp.Prep();
-                await smtp.SendMailAsync(email.Message);
-            }
+            ViewBag.Title = "Embassy Consular Appointment Form (Admin)";
 
-            @ViewBag.Title = "Consular Appointment Request - Received";
+            consularApptVM.Note = "[ADMIN]" + consularApptVM.Note;
+            EmbassyAppDb.AddConsularAppt(consularApptVM, EmWebAppConfig.QueueNumberInitial);
+
+            DateTime? confirmedApptDate = null;
+            int? confirmedQueNumber = 0;
+            ConsularApptVM consularApptVM2 = EmbassyAppDb.ConfirmConsularAppt(consularApptVM.ID, consularApptVM.ActivationCode, ref confirmedApptDate, ref confirmedQueNumber);
+
+            consularApptVM.QueueNumber = confirmedQueNumber.GetValueOrDefault();
+
+            ViewBag.PartialHtml = "_MsgApptConfirmedByAdmin";
+
             AppointmentType appointmentType = ConsularAppointmentTypes.GetAppointmentType(consularApptVM.AppointmentType);
             ViewBag.AppointmentType = appointmentType.Description;
 
@@ -85,7 +114,7 @@ namespace EmWebApp.Controllers
             ViewBag.ConfirmedCode = code;
             return View();
         }
-        
+
 
         [HttpPost]
         public async Task<ActionResult> ConfirmPosted(string confirmedId, string confirmedCode)
