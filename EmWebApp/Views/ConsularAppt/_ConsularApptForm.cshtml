@@ -1,15 +1,18 @@
 ﻿@model EmWebApp.Models.ConsularApptVM
 @using EmWebApp.BLL
 @{
-    SelectList genderList = new SelectList(new[] {  new {Name = "Male", Value="M"},
-                                                    new {Name = "Female", Value="F"}}, "Value", "Name");
+	SelectList genderList = new SelectList(new[] {  new {Name = "Male", Value="M"},
+													new {Name = "Female", Value="F"}}, "Value", "Name");
 
-    SelectList workingDays = DateTime.Now.WorkingDaysSelectList(15, Request.IsAuthenticated);
-    SelectList appointmentTypes = DropDownLookups.GetAppointmentTypes();
+	SelectList workingDays = DateTime.Now.WorkingDaysSelectList(15, Request.IsAuthenticated);
+	SelectList appointmentTypes = DropDownLookups.GetAppointmentTypes();
 
-    SelectList stayTypeList = new SelectList(EmWebAppConfig.StayTypeDict.Select(p =>
-                                                new { Name = p.Value, Value = p.Key.ToString() }).ToArray(),
-                                                "Value", "Name");
+	SelectList stayTypeList = new SelectList(EmWebAppConfig.StayTypeDict.Select(p => new { Name = p.Value, Value = p.Key.ToString() }).ToArray(), "Value", "Name");
+
+	ViewBag.SelectAppointmentDate = HttpUtility.HtmlDecode("&raquo;") + " Select Appointment Date " + HttpUtility.HtmlDecode("&laquo;");
+	ViewBag.SelectServiceType = HttpUtility.HtmlDecode("&raquo;") + " Select Service Type " + HttpUtility.HtmlDecode("&laquo;");
+	ViewBag.SelectGender = HttpUtility.HtmlDecode("&raquo;") + " Select Gender " + HttpUtility.HtmlDecode("&laquo;");
+	ViewBag.StayType = HttpUtility.HtmlDecode("&raquo;") + " Select Stay Type " + HttpUtility.HtmlDecode("&laquo;");
 
 }
 
@@ -37,7 +40,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.AppointmentDate, htmlAttributes: new { @class = "control-label col-md-4" })
                     <div class="col-md-7">
-                        @Html.DropDownListFor(model => model.AppointmentDate, workingDays, "-- Select Appointment Date --"
+                        @Html.DropDownListFor(model => model.AppointmentDate, workingDays, (string)ViewBag.SelectAppointmentDate
 , new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" }) Available up to two weeks in advance. (ရက်ချိန်းကို ၂ ပတ် ကြိုတင်ရယူနိုင်ပါသည်။)
                     </div>
@@ -47,7 +50,7 @@
                 <div class="form-group ">
                     @Html.LabelFor(model => model.AppointmentType, htmlAttributes: new { @class = "control-label col-md-4" })
                     <div class="col-md-7">
-                        @Html.DropDownListFor(model => model.AppointmentType, appointmentTypes, "-- Select Service Type --"
+                        @Html.DropDownListFor(model => model.AppointmentType, appointmentTypes, (string)ViewBag.SelectServiceType
                  , new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.AppointmentType, "", new { @class = "text-danger" })
                     </div>
@@ -68,7 +71,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-8">
-                            @Html.DropDownListFor(model => model.Gender, genderList, "-- Select Gender --"
+                            @Html.DropDownListFor(model => model.Gender, genderList, (string)ViewBag.SelectGender
              , new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                         </div>
@@ -143,7 +146,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.StayType, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-7">
-                            @Html.DropDownListFor(model => model.StayType, stayTypeList, "-- Select Stay Type --"
+                            @Html.DropDownListFor(model => model.StayType, stayTypeList, (string)ViewBag.StayType
                                     , new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.StayType, "", new { @class = "text-danger" })
                         </div>

@@ -22,7 +22,7 @@ namespace EmWebApp.BLL
         {
             var elements = ConsularAppointmentTypes.List;
             var list = from ele in elements
-                       select new { Name = @"> " + ele.Description, Value = ele.Code };
+                       select new { Name = HttpUtility.HtmlDecode(@"&bull; ") + ele.Description, Value = ele.Code };
 
             return new SelectList(list, "Value", "Name");
         }
