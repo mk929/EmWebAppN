@@ -302,6 +302,9 @@
     <Content Include="Content\fonts\myanmar3.woff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Documents\PdfTemplates\ApptLtr1p1TmplV2.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\Debug-File-Test.pubxml" />
     <None Include="Properties\PublishProfiles\EmWebApp01.pubxml" />
     <None Include="Properties\PublishProfiles\Release-Azure-EmWebApp01.pubxml" />

@@ -17,6 +17,19 @@ namespace EmWebApp.BLL
 {
     public class ConfirmationLetterPdf
     {
+        public static string GetPdfTemplateFileName(AppointmentType appointmentType, int stayType)
+        {
+            string pdfTemplateFileName = string.Empty; 
+            if (appointmentType.Code == 1 && stayType == 5) // "WP (Domestic Worker)" passport renewal, todo: enums
+            {
+                pdfTemplateFileName = EmWebAppConfig.CnslrLtrPdfTmplPath + EmWebAppConfig.DomesticWorker_PassportRenew_TmplFileName;
+            }
+            else
+            {
+                pdfTemplateFileName = EmWebAppConfig.CnslrLtrPdfTmplPath + appointmentType.ConsularLtrPdfTmplFilename;
+            }
+            return pdfTemplateFileName;
+        }
         public static MemoryStream GetAppointmentLetterStream(string pdfTemplate, ConsularApptVM consularAppt)
         {
             PdfReader pdfReader = new PdfReader(pdfTemplate);

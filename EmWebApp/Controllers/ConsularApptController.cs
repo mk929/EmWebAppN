@@ -153,8 +153,7 @@ namespace EmWebApp.Controllers
             };
 
             // using (MemoryStream ms = new MemoryStream())
-            string pdfTemplateFile = EmWebAppConfig.CnslrLtrPdfTmplPath + appointmentType.ConsularLtrPdfTmplFilename;
-
+            string pdfTemplateFile = ConfirmationLetterPdf.GetPdfTemplateFileName(appointmentType, consularApptVM.StayType);
             using (MemoryStream ms = ConfirmationLetterPdf.GetAppointmentLetterStream(pdfTemplateFile, consularApptVM))
             using (MailMessage mailMsg = embassyMail.Message)
             using (var smtp = new SmtpClient())

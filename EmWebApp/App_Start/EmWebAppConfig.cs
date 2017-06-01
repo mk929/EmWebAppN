@@ -29,6 +29,8 @@ namespace EmWebApp
 
         public static readonly string CnslrLtrPdfTmplPath;
 
+        public static readonly string DomesticWorker_PassportRenew_TmplFileName;
+
         public static IDictionary<int, string> StayTypeDict = new Dictionary<int, string>()
                                                             {
                                                                 {1, "EP"},
@@ -52,6 +54,7 @@ namespace EmWebApp
             AppointmentTypeFile = ConfigurationManager.AppSettings["AppointmentTypeFile"];
 
             HolidaysFile = ConfigurationManager.AppSettings["HolidaysFile"];
+            DomesticWorker_PassportRenew_TmplFileName = ConfigurationManager.AppSettings["DomesticWorker_PassportRenew_TmplFileName"];
             Emblem_Logo = ConfigurationManager.AppSettings["Emblem_Logo"];
 
 

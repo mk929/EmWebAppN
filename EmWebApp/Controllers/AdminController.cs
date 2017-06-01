@@ -28,7 +28,7 @@ namespace EmWebApp.Controllers
             ConsularApptVM model = EmbassyAppDb.GetConsularApptById(id);
 
             AppointmentType appointmentType = ConsularAppointmentTypes.GetAppointmentType(model.AppointmentType);
-            string pdfTemplateFile = EmWebAppConfig.CnslrLtrPdfTmplPath + appointmentType.ConsularLtrPdfTmplFilename;
+            string pdfTemplateFile = ConfirmationLetterPdf.GetPdfTemplateFileName(appointmentType, model.StayType);
             MemoryStream pdfStream = ConfirmationLetterPdf.GetAppointmentLetterStream(pdfTemplateFile, model);
 
             //string confirmationLetter = this.GetConfirmationLetter(id);
