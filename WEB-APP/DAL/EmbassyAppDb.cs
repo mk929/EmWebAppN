@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace EmWebApp.Models.Data
@@ -61,7 +62,7 @@ namespace EmWebApp.Models.Data
                 SqlCommand cmd = new SqlCommand("GetActiveConsularApptsForAdmin", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                if (apptDate != null )
+                if (apptDate != null)
                     cmd.Parameters.Add(new SqlParameter("@AppointmentDate", apptDate));
                 if (passportNo != null)
                     cmd.Parameters.Add(new SqlParameter("@PassportNumber", passportNo));
@@ -94,6 +95,31 @@ namespace EmWebApp.Models.Data
                 }
             }
             return new ConsularApptVM();
+        }
+        public static string GetConsularApptsAdminCSV(List<ConsularApptVM> list, char seperator)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            string header = "Appointment Date|Name|Passport Number|Issued Date|Email|Phone".Replace('|', seperator);
+            sb.Append(header);
+            sb.AppendLine();
+            foreach (var item in list)
+            {
+                sb.Append(string.Format("{0:yyyy-MM-dd}", item.AppointmentDate));
+                sb.Append(seperator);
+                sb.Append(item.Name);
+                sb.Append(seperator);
+                sb.Append(item.PassportNumber);
+                sb.Append(seperator);
+                sb.Append(string.Format("{0:yyyy-MM-dd}", item.PassportIssuedDate));
+                sb.Append(seperator);
+                sb.Append(item.ContactEmail);
+                sb.Append(seperator);
+                sb.Append(item.ContactPhone);
+                sb.AppendLine();
+
+            }
+            return sb.ToString();
         }
 
         public static ConsularApptVM ConfirmConsularAppt(int appointmentId, string activationCode,
@@ -136,7 +162,7 @@ namespace EmWebApp.Models.Data
             return consularAppt;
         }
 
-        private static ConsularApptVM GetConsularApptVM( DataRow dr )
+        private static ConsularApptVM GetConsularApptVM(DataRow dr)
         {
             return new ConsularApptVM
             {

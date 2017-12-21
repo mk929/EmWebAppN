@@ -155,9 +155,17 @@ namespace EmWebApp.BLL
         [XmlAttribute("day")]
         public string Day { get; set; }
 
-        public DateTime DT
+        public DateTime NextHoliday
         {
-            get { return Convert.ToDateTime(String.Format("{0}/{1}/{2}", DateTime.Today.Year, Month, Day)); }
+            get
+            {
+                var holiday = Convert.ToDateTime(String.Format("{0}/{1}/{2}", DateTime.Today.Year, Month, Day));
+
+                if ( DateTime.Today > holiday)
+                    holiday = Convert.ToDateTime(String.Format("{0}/{1}/{2}", DateTime.Today.Year + 1, Month, Day));
+
+                return holiday;
+            }
         }
     }
 }

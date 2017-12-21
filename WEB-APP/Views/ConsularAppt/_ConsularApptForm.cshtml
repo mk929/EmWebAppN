@@ -4,7 +4,7 @@
 	SelectList genderList = new SelectList(new[] {  new {Name = "Male", Value="M"},
 													new {Name = "Female", Value="F"}}, "Value", "Name");
 
-	SelectList workingDays = DateTime.Now.WorkingDaysSelectList(15, Request.IsAuthenticated);
+	SelectList workingDays = DateTime.Now.WorkingDaysSelectList(60, Request.IsAuthenticated);
 	SelectList appointmentTypes = DropDownLookups.GetAppointmentTypes();
 
 	SelectList stayTypeList = new SelectList(EmWebAppConfig.StayTypeDict.Select(p => new { Name = p.Value, Value = p.Key.ToString() }).ToArray(), "Value", "Name");

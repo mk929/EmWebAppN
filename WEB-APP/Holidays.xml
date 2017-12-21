@@ -11,5 +11,7 @@
   <Holiday month="4" day="17" description="Thin-Gyan Holiday" />
   <Holiday month="5" day="1" description="May Day" />
   <Holiday month="7" day="19" description="Martyr's Day" />
+  <Holiday month="12" day="23" description="Christmas Holiday" />
+  <Holiday month="12" day="24" description="Christmas Holiday" />
   <Holiday month="12" day="25" description="Christmas Holiday" />
 </Holidays>

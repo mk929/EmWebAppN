@@ -69,7 +69,7 @@ namespace EmWebApp.BLL
             }
             
             var holidays = from dt in BLL.Holidays.List
-                            select dt.DT;
+                            select dt.NextHoliday;
 
             var weekends = new List<DayOfWeek> { DayOfWeek.Saturday, DayOfWeek.Sunday };
 

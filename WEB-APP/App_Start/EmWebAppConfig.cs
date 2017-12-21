@@ -39,7 +39,10 @@ namespace EmWebApp
                                                                 {4, "SP"},
                                                                 {5, "WP (Domestic Worker)"},
                                                                 {6, "WP (Normal)"},
-                                                                {7, "WP (Nursing Aide/Health Care)"}
+                                                                {7, "WP (Nursing Aide/Health Care)"},
+                                                                {8, "Student Pass"},
+                                                                {9, "Dependent Pass"},
+                                                                {10, "Long Term Pass"}
                                                             };
         static EmWebAppConfig()
         {
