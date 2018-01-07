@@ -1,13 +1,9 @@
 ﻿using EmWebApp.Controllers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace EmWebApp
 {
@@ -22,6 +18,8 @@ namespace EmWebApp
         }
         protected void Application_Error(object sender, EventArgs e)
         {
+            return;
+
             Exception exception = Server.GetLastError();
             Server.ClearError();
             // Response.Redirect("~/Home/Error");

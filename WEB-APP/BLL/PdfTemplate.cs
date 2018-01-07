@@ -12,6 +12,7 @@ using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using System.Text;
 using System.CodeDom.Compiler;
+using EmWebApp.Data;
 
 namespace EmWebApp.BLL
 {

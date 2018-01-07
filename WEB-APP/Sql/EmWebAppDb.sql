@@ -1,7 +1,4 @@
 
-USE [EmWebAppDb]
-GO 
-
 SET ANSI_NULLS ON
 GO
 
@@ -53,8 +50,8 @@ GO
 
 /*--------------------- Object:  StoredProcedure [dbo].[AddConsularAppointment]  ---------------------*/
  IF EXISTS ( SELECT  * 
-    FROM    sys.objects
-    WHERE   object_id = OBJECT_ID(N'[dbo].[AddConsularAppointment]')
+	FROM    sys.objects
+	WHERE   object_id = OBJECT_ID(N'[dbo].[AddConsularAppointment]')
 			AND type IN ( N'P', N'PC' ) )
 BEGIN
 	DROP PROCEDURE [dbo].[AddConsularAppointment]
@@ -64,34 +61,33 @@ GO
 
 CREATE PROCEDURE [dbo].[AddConsularAppointment]
 (
-    @AppointmentDate      DATETIME       ,
-    @AppointmentType      INT		 ,
-    @QueueNumber		  INT	 ,
-    @Name                 NVARCHAR (128) ,
-    @Gender               NCHAR (1)	 ,
-    @DateOfBirth          DATETIME       ,
-    @PlaceOfBirth         NVARCHAR (128) ,
-    @Nationality          NCHAR (2) = 'MM' ,
-    @NRIC_No              NVARCHAR (128) ,
-    @PassportNumber       NVARCHAR (128) ,
-    @PassportIssuedDate   DATETIME       ,
-    @ConsulateLocation    NCHAR (2) = 'SG' ,
-    @StayType		  INT,
-    @StayPermitNumber	  NVARCHAR (128) ,
-    @EmployerName	  NVARCHAR (128) = NULL,
-    @Occupation		  NVARCHAR (128) = NULL,
-    @ContactAddr1         NVARCHAR (512) ,
-    @ContactAddr2         NVARCHAR (512) = NULL,
-    @ContactPhone         NVARCHAR (128) ,
-    @ContactEmail         NVARCHAR (128) ,
-    @HomeAddr1            NVARCHAR (512) ,
-    @HomeAddr2            NVARCHAR (512) = NULL,
-    @HomePhone            NVARCHAR (128) = NULL,
-    @AppointmentStatus    int  = 0,
-    @Note                 NVARCHAR (MAX) = NULL,
-    @ApplicationId        int output,
-    @ActivationCode       NVARCHAR (256) output
-
+	@AppointmentDate      DATETIME       ,
+	@AppointmentType      INT		 ,
+	@QueueNumber		  INT	 ,
+	@Name                 NVARCHAR (128) ,
+	@Gender               NCHAR (1)	 ,
+	@DateOfBirth          DATETIME       ,
+	@PlaceOfBirth         NVARCHAR (128) ,
+	@Nationality          NCHAR (2) = 'MM' ,
+	@NRIC_No              NVARCHAR (128) ,
+	@PassportNumber       NVARCHAR (128) ,
+	@PassportIssuedDate   DATETIME       ,
+	@ConsulateLocation    NCHAR (2) = 'SG' ,
+	@StayType		  INT,
+	@StayPermitNumber	  NVARCHAR (128) ,
+	@EmployerName	  NVARCHAR (128) = NULL,
+	@Occupation		  NVARCHAR (128) = NULL,
+	@ContactAddr1         NVARCHAR (512) ,
+	@ContactAddr2         NVARCHAR (512) = NULL,
+	@ContactPhone         NVARCHAR (128) ,
+	@ContactEmail         NVARCHAR (128) ,
+	@HomeAddr1            NVARCHAR (512) ,
+	@HomeAddr2            NVARCHAR (512) = NULL,
+	@HomePhone            NVARCHAR (128) = NULL,
+	@AppointmentStatus    int  = 0,
+	@Note                 NVARCHAR (MAX) = NULL,
+	@ApplicationId        int output,
+	@ActivationCode       NVARCHAR (256) output
 )
 AS	
 BEGIN
@@ -99,37 +95,37 @@ BEGIN
 SELECT @ActivationCode = convert(nvarchar(256),replace(NEWID(),N'-',N'')) 
 
 INSERT INTO [dbo].[ConsularAppointments]
-           ([FormSubmissionDate]
+		   ([FormSubmissionDate]
 		   ,[AppointmentDate]
 		   ,[AppointmentType]
-           ,[QueueNumber]
-           ,[Name]
-           ,[Gender]
-           ,[DateOfBirth]
-           ,[PlaceOfBirth]
-           ,[Nationality]
-           ,[NRIC_No]
-           ,[PassportNumber]
-           ,[PassportIssuedDate]
-           ,[ConsulateLocation]
+		   ,[QueueNumber]
+		   ,[Name]
+		   ,[Gender]
+		   ,[DateOfBirth]
+		   ,[PlaceOfBirth]
+		   ,[Nationality]
+		   ,[NRIC_No]
+		   ,[PassportNumber]
+		   ,[PassportIssuedDate]
+		   ,[ConsulateLocation]
 		   ,[StayType]
-           ,[StayPermitNumber]
+		   ,[StayPermitNumber]
 		   ,[EmployerName]
 		   ,[Occupation]
-           ,[ContactAddr1]
-           ,[ContactAddr2]
-           ,[ContactPhone]
-           ,[ContactEmail]
-           ,[HomeAddr1]
-           ,[HomeAddr2]
-           ,[HomePhone]
-           ,[AppointmentStatus]
-           ,[ActivationCode]
-           ,[Note])
-     VALUES
-           (GETDATE(),
-		    @AppointmentDate  ,
-		    @AppointmentType,
+		   ,[ContactAddr1]
+		   ,[ContactAddr2]
+		   ,[ContactPhone]
+		   ,[ContactEmail]
+		   ,[HomeAddr1]
+		   ,[HomeAddr2]
+		   ,[HomePhone]
+		   ,[AppointmentStatus]
+		   ,[ActivationCode]
+		   ,[Note])
+	 VALUES
+		   (GETDATE(),
+			@AppointmentDate  ,
+			@AppointmentType,
 			@QueueNumber  , 
 			@Name  ,
 			@Gender  ,
@@ -165,8 +161,8 @@ GO
 /*--------------------- Object:  StoredProcedure [dbo].[ConfirmConsularAppointment]  ---------------------*/
 
  IF EXISTS ( SELECT  * 
-    FROM    sys.objects
-    WHERE   object_id = OBJECT_ID(N'[dbo].[ConfirmConsularAppointment]')
+	FROM    sys.objects
+	WHERE   object_id = OBJECT_ID(N'[dbo].[ConfirmConsularAppointment]')
 			AND type IN ( N'P', N'PC' ) )
 BEGIN
 	DROP PROCEDURE [dbo].ConfirmConsularAppointment
@@ -179,8 +175,8 @@ CREATE PROCEDURE [dbo].[ConfirmConsularAppointment]
 (
 	@ApplicationID		  int,
 	@ActivationCode		  nvarchar (256),
-    	@Note			  nvarchar (MAX) = NULL,
-    	@ConfirmedApptDate	  datetime output,
+		@Note			  nvarchar (MAX) = NULL,
+		@ConfirmedApptDate	  datetime output,
 	@ConfirmedQueueNumber	  int output
 	)
 AS	
@@ -231,8 +227,8 @@ GO
 
 /*--------------------- Object:  StoredProcedure [dbo].[GetActiveConsularApptsForAdmin]  ---------------------*/
  IF EXISTS ( SELECT  * 
-    FROM    sys.objects
-    WHERE   object_id = OBJECT_ID(N'[dbo].[GetActiveConsularApptsForAdmin]')
+	FROM    sys.objects
+	WHERE   object_id = OBJECT_ID(N'[dbo].[GetActiveConsularApptsForAdmin]')
 			AND type IN ( N'P', N'PC' ) )
 BEGIN
 	DROP PROCEDURE [dbo].GetActiveConsularApptsForAdmin
@@ -299,8 +295,8 @@ GO
 
 /*--------------------- Object:  StoredProcedure [dbo].[GetActiveConsularApptsForUser]  ---------------------*/
  IF EXISTS ( SELECT  * 
-    FROM    sys.objects
-    WHERE   object_id = OBJECT_ID(N'[dbo].[GetActiveConsularApptsForUser]')
+	FROM    sys.objects
+	WHERE   object_id = OBJECT_ID(N'[dbo].[GetActiveConsularApptsForUser]')
 			AND type IN ( N'P', N'PC' ) )
 BEGIN
 	DROP PROCEDURE [dbo].GetActiveConsularApptsForUser

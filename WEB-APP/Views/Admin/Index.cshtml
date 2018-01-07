@@ -1,4 +1,5 @@
-﻿@model IEnumerable<EmWebApp.Models.ConsularApptVM>
+﻿@using EmWebApp.Data
+@model IEnumerable<EmWebApp.Data.ConsularApptVM>
 @using EmWebApp.BLL
 @{
 	ViewBag.Title = "Consular Appointments";
@@ -47,7 +48,7 @@
 							<div class="col-sm-7">@item.PassportNumber</div>
 						</div>
 						<div class="col-sm-2">
-							@Html.ActionLink("Appointment Letter", "PrintApptLtr", new { id = item.ID }, new { @class = "btn btn-default btn-sm", role = "button" })
+							@Html.ActionLink("Appointment Letter", "PrintApptLtr", new { id = item.Id }, new { @class = "btn btn-default btn-sm", role = "button" })
 						</div>
 					</div>
 					<div class="row">
@@ -61,7 +62,7 @@
 						</div>
 						<!--
 						<div class="col-sm-2" style="background-color: snow">
-							(at)Html.ActionLink("[Application Details]", "Details", new { id = item.ID })
+							(at)Html.ActionLink("[Application Details]", "Details", new { id = item.Id })
 						</div>
 							-->
 					</div>

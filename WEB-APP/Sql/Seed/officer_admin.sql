@@ -27,7 +27,8 @@ INSERT INTO [dbo].[AspNetUsers]
 		   ,1
 		   ,0
 		   ,'officer@admin.com')
-GO
+
+/* GO */
 
 /* Password: 111111 */
 
@@ -57,4 +58,5 @@ INSERT INTO [dbo].[AspNetUsers]
 			,1
 			,0
 			,'sa@admin.com')
-GO
+
+/* GO */

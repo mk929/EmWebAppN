@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace EmWebApp.Models
+namespace EmWebApp.Data
 {
     public class CATestData
     {
@@ -28,14 +25,14 @@ namespace EmWebApp.Models
                 AppointmentDate = appointmentDate,
                 AppointmentType = r.Next(1, 16),
                 Name = String.Format("User_{0}", _i),
-                Gender = r.Next(1, 3) == 1 ? "M" : "F",
+                Gender = r.Next(1, 2) == 1 ? "M" : "F",
                 DateOfBirth = DateTime.Today.AddYears(r.Next(-60, -15)).AddDays(r.Next(1,365)),
                 PlaceOfBirth = String.Format("City/Town Name: {0}, Myanmar", _i),
                 Nationality = "MM",
                 NRIC_No = String.Format("NRIC{0}", r.Next(1000000, 9999999).ToString("D8")),
                 PassportNumber = String.Format("{0}", r.Next(1, 9999999).ToString("D8")),
                 PassportIssuedDate = DateTime.Today.AddYears(r.Next(-20, -1)).AddDays(r.Next(1, 365)),
-                StayType = r.Next(1, 7),
+                StayType = r.Next(1, 10),
                 StayPermitNumber = String.Format("StayPermitNumber_{0}", _i),
                 EmployerName = String.Format("EmployerName_{0}", _i),
                 Occupation = String.Format("Occupation_{0}", _i),

@@ -1,19 +1,13 @@
-﻿using EmWebApp;
-using EmWebApp.BLL;
-using EmWebApp.Models;
-using EmWebApp.Models.Data;
+﻿using EmWebApp.BLL;
 using EmWebApp.Util;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Threading.Tasks;
-using System.Web.Hosting;
 using System.Web.Mvc;
-using System.Web.Routing;
+using EmWebApp.Data;
 
 namespace EmWebApp.Controllers
 {
@@ -57,7 +51,7 @@ namespace EmWebApp.Controllers
                 EmbassyAppDb.AddConsularAppt(consularApptVM, EmWebAppConfig.QueueNumberInitial);
                 DateTime? confirmedApptDate = null;
                 int? confirmedQueNumber = 0;
-                ConsularApptVM consularApptVM2 = EmbassyAppDb.ConfirmConsularAppt(consularApptVM.ID, consularApptVM.ActivationCode, ref confirmedApptDate, ref confirmedQueNumber);
+                ConsularApptVM consularApptVM2 = EmbassyAppDb.ConfirmConsularAppt(consularApptVM.Id, consularApptVM.ActivationCode, ref confirmedApptDate, ref confirmedQueNumber);
 
                 consularApptVM.QueueNumber = confirmedQueNumber.GetValueOrDefault();
 
@@ -94,7 +88,7 @@ namespace EmWebApp.Controllers
 
             DateTime? confirmedApptDate = null;
             int? confirmedQueNumber = 0;
-            ConsularApptVM consularApptVM2 = EmbassyAppDb.ConfirmConsularAppt(consularApptVM.ID, consularApptVM.ActivationCode, ref confirmedApptDate, ref confirmedQueNumber);
+            ConsularApptVM consularApptVM2 = EmbassyAppDb.ConfirmConsularAppt(consularApptVM.Id, consularApptVM.ActivationCode, ref confirmedApptDate, ref confirmedQueNumber);
 
             consularApptVM.QueueNumber = confirmedQueNumber.GetValueOrDefault();
 

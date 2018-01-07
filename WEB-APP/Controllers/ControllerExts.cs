@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EmWebApp.Data;
 
 namespace EmWebApp.Controllers
 {
@@ -44,7 +45,7 @@ namespace EmWebApp.Controllers
                      {
                          controller = controllerName,
                          action = actionName,
-                         id = consularApptVM.ID,
+                         id = consularApptVM.Id,
                          code = consularApptVM.ActivationCode
                      }, cntlr.Request.Url.Scheme);
 
@@ -74,7 +75,7 @@ namespace EmWebApp.Controllers
         }
         public static string GetConfirmationLetter(this Controller cntlr, int id)
         {
-            var consularApptVM = EmWebApp.Models.Data.EmbassyAppDb.GetConsularApptById(id);
+            var consularApptVM = EmWebApp.Data.EmbassyAppDb.GetConsularApptById(id);
             SetViewBagForConfirmationLetter(cntlr, consularApptVM);
             return GetConfirmationLetter(cntlr, consularApptVM);
         }

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EmWebApp.Models;
+using EmWebApp.Data;
 
 namespace EmWebApp.Controllers
 {

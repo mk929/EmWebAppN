@@ -1,6 +1,7 @@
-﻿@model EmWebApp.Models.ConsularApptVM
+﻿@using EmWebApp.Data
+@model EmWebApp.Data.ConsularApptVM
 <div>
-    @if (Model.ID > 0)
+    @if (Model.Id > 0)
     {
         @Html.Partial((String)@ViewBag.PartialHtml, Model)
     }

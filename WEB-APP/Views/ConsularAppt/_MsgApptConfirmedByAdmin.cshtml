@@ -1,46 +1,47 @@
-﻿@model EmWebApp.Models.ConsularApptVM
+﻿@using EmWebApp.Data
+@model EmWebApp.Data.ConsularApptVM
 <br />
 <div class="embassypaperbg">
-    <div class="embassypaper">
-        <p>
-            <h4><strong>The consular appointment is confirmed.</strong></h4><br />
-            <center>
-                <table border=0 frame="box" cellspacing="2" cellpadding="5" bgcolor="#ffffff">
-                    <tr>
-                        <td style="background:#eeeeee;"><div>Name: </div></td>
-                        <td style="background:#ffffff;"><div>@Model.Name</div></td>
-                    </tr>
-                    <tr>
-                        <td style="background:#eeeeee;"><div>Passport Number: </div></td>
-                        <td style="background:#ffffff;"><div>@Model.PassportNumber</div></td>
-                    </tr>
-                    <tr>
-                        <td style="background:#eeeeee;"><div>Service Type: </div></td>
-                        <td style="background:#ffffff;"><div>@ViewBag.AppointmentType</div></td>
-                    </tr>
-                    <tr>
-                        <td style="background:#eeeeee;"><div>Appointment Date: </div></td>
-                        <td style="background:#ffffff;"><div><b>@(Model.AppointmentDate?.ToString("MMMM d, yyyy  [dddd]"))</b></div></td>
-                    </tr>
-                    <tr>
-                        <td style="background:#eeeeee;"><div>Queue Number: </div></td>
-                        <td style="background:#ffffff;"><div>@Model.QueueNumber</div></td>
-                    </tr>
-                    <tr>
-                        <td style="background:#eeeeee;"><div>Appointment Status: </div></td>
-                        <td style="background:#ffffff;"><span style="background:#b6ff00; padding:5px;"><b>&nbsp;Confirmed&nbsp;</b></span></td>
-                    </tr>
-                </table>
+	<div class="embassypaper">
+		<p>
+			<h4><strong>The consular appointment is confirmed.</strong></h4><br />
+			<center>
+				<table border=0 frame="box" cellspacing="2" cellpadding="5" bgcolor="#ffffff">
+					<tr>
+						<td style="background:#eeeeee;"><div>Name: </div></td>
+						<td style="background:#ffffff;"><div>@Model.Name</div></td>
+					</tr>
+					<tr>
+						<td style="background:#eeeeee;"><div>Passport Number: </div></td>
+						<td style="background:#ffffff;"><div>@Model.PassportNumber</div></td>
+					</tr>
+					<tr>
+						<td style="background:#eeeeee;"><div>Service Type: </div></td>
+						<td style="background:#ffffff;"><div>@ViewBag.AppointmentType</div></td>
+					</tr>
+					<tr>
+						<td style="background:#eeeeee;"><div>Appointment Date: </div></td>
+						<td style="background:#ffffff;"><div><b>@(Model.AppointmentDate?.ToString("MMMM d, yyyy  [dddd]"))</b></div></td>
+					</tr>
+					<tr>
+						<td style="background:#eeeeee;"><div>Queue Number: </div></td>
+						<td style="background:#ffffff;"><div>@Model.QueueNumber</div></td>
+					</tr>
+					<tr>
+						<td style="background:#eeeeee;"><div>Appointment Status: </div></td>
+						<td style="background:#ffffff;"><span style="background:#b6ff00; padding:5px;"><b>&nbsp;Confirmed&nbsp;</b></span></td>
+					</tr>
+				</table>
 				<br />
-				@Html.ActionLink("Appointment Letter", "PrintApptLtr", "Admin", new { id = @Model.ID }, new { @class = "btn btn-default btn-sm", role = "button" })
-            </center>
-            <br /><br />
-        </p>
-        <p>
-            This appointment is confirmed by Administrator: <strong>@HttpContext.Current.User.Identity.Name</strong>.
-            <br /><br />
-        </p>
-    </div>
+				@Html.ActionLink("Appointment Letter", "PrintApptLtr", "Admin", new { id = @Model.Id }, new { @class = "btn btn-default btn-sm", role = "button" })
+			</center>
+			<br /><br />
+		</p>
+		<p>
+			This appointment is confirmed by Administrator: <strong>@HttpContext.Current.User.Identity.Name</strong>.
+			<br /><br />
+		</p>
+	</div>
 </div>
 <br /><br /><br />
 <br /><br /><br />
