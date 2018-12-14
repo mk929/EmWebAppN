@@ -6,6 +6,7 @@ using System.Text;
 using EmWebApp.Domain;
 using System.Linq.Expressions;
 using AutoMapper;
+using System.Threading.Tasks;
 
 namespace EmWebApp.Data
 {
@@ -89,7 +90,7 @@ namespace EmWebApp.Data
             using (var context = ApplicationDbContext.Create())
             {
                 var dates = context.ConsularAppointments
-                    .Where(n => n.AppointmentDate >= DateTime.Today && n.AppointmentStatus == 1 && n.AppointmentDate.HasValue )
+                    .Where(n => n.AppointmentDate >= DateTime.Today && n.AppointmentStatus == 1 && n.AppointmentDate.HasValue)
                     .OrderBy(n => n.AppointmentDate)
                     .Select(n => n.AppointmentDate.Value)
                     .Distinct().ToList();
@@ -117,10 +118,10 @@ namespace EmWebApp.Data
                     .Where(ConsularApptsAdminPredicate.CheckForCriteria(passportNo, apptDate))
                     .OrderBy(n => n.AppointmentDate)
                     .ThenBy(n => n.QueueNumber).ToList();
-                
+
                 var dto = appts.MapToViewModelList();
                 return dto;
-            }            
+            }
         }
         public static string GetConsularApptsAdminCSV(List<ConsularApptVM> list, char seperator)
         {
@@ -166,7 +167,27 @@ namespace EmWebApp.Data
 
             return (appt => appt.Id > 0); // alway true expression
         }
+        public static Func<ConsularAppointment, bool> CheckForCriteriaFunc(string passportNo = null, DateTime? apptDate = null)
+        {
+
+            return (appt => appt.Id > 0); // alway true expression
+        }
+        public static Predicate<ConsularAppointment> CheckForCriteria3(string passportNo = null, DateTime? apptDate = null)
+        {
+
+            Converter<ConsularAppointment, ConsularApptVM> tempConvertorPointer
+                = new Converter<ConsularAppointment, ConsularApptVM>(LocalMapper.MtoVm);
+
+            return (appt => appt.Id > 0); // alway true expression
+        }
     }
 
+    internal class LocalMapper
+    {
+        internal static ConsularApptVM MtoVm(ConsularAppointment input)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 
